@@ -3,10 +3,8 @@
 $name = $_GET['name'] ?? '';
 $mail = $_GET['mail'] ?? '';
 $age = $_GET['age'] ?? '';
-// $user_info = $name . $mail . $age;
-// echo $user_info;
 
-if (is_numeric('age') && strlen('name' > 3 ) && strpos($mail, '@') && strpos($mail, '.')) {
+if (is_numeric($age) && strlen($name > 3 ) && strpos($mail, '@') && strpos($mail, '.')) {
     echo 'Accesso riuscito';
 } else {
     echo 'Accesso negato';
