@@ -4,9 +4,14 @@ $name = $_GET['name'] ?? '';
 $mail = $_GET['mail'] ?? '';
 $age = $_GET['age'] ?? '';
 
-if (is_numeric($age) && strlen($name > 3 ) && strpos($mail, '@') && strpos($mail, '.')) {
-    echo 'Accesso riuscito';
-} else {
+$is_age_valid = is_numeric($age);
+$is_name_valid = mb_strlen($name) > 3;
+$is_email_valid = strpos($mail, '@') && strpos($mail, '.');
+
+
+if (!$is_age_valid || !$is_name_valid || $is_email_valid) {
     echo 'Accesso negato';
+} else {
+    echo 'Accesso riuscito';
 };
 ?>
