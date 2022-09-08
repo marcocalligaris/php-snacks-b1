@@ -1,6 +1,6 @@
 <?php
 
-$posts = [
+$posts_list = [
 
     '10-01-2019' => [
         [
@@ -40,10 +40,37 @@ $posts = [
     ],
 ];
 
-$dates = array_keys($posts);
+$dates = array_keys($posts_list);
 
 for($i = 0; $i < count($dates); $i++){
     $date = $dates[$i];
-    var_dump($posts[$date]);
 };
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php for($i = 0; $i < count($dates); $i++) { 
+        $date = $dates[$i];
+        $posts = $posts_list[$date];
+        ?>
+        <section>
+            <h3>Post del <?= $date ?></h3>
+            <?php for($j = 0; $j < count($posts); $j++) { ?>
+                <div>
+                    <h4><?= $posts[$j]['title'] ?></h4>
+                    <h6><em><?= $posts[$j]['author'] ?></em></h6>
+                    <p><?= $posts[$j]['text'] ?></p>
+                </div>
+            <?php } ?>
+
+        </section>
+        <?php } ?>
+</body>
+</html>
